@@ -5,7 +5,7 @@ const styles = {
       backgroundColor: '#B7E0F2',
       padding: '3rem',
       margin:'20px',
-      height:'300px',
+      height:'400px',
       width:'300px'
     },
     cardImage: {
@@ -15,7 +15,7 @@ const styles = {
     
     }
   }
-function DispCard({title,desc,category,cost,imglink}) {
+function DispCard({title,desc,category,cost,imglink,count=0}) {
   return (
     <Card style={styles.card}>
       <Card.Img class ="cardImage" variant="top" src={imglink} style={styles.cardImage} />
@@ -31,6 +31,7 @@ function DispCard({title,desc,category,cost,imglink}) {
       </ListGroup>
       <Card.Body>
         <Card.Link href="#"> Add to Cart</Card.Link>
+        <Card.Text>{count}</Card.Text>
       </Card.Body>
     </Card>
   );
