@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { useState } from 'react'
 const styles = {
     card: {
       backgroundColor: '#B7E0F2',
@@ -15,7 +16,22 @@ const styles = {
     
     }
   }
-function DispCard({title,desc,category,cost,imglink,count=0}) {
+function DispCard({title,desc,category,cost,imglink}) {
+    const [count,setCount] = useState(0);
+    const increment=()=>{
+        console.log('in increment')
+        if(count<=5){
+        setCount(count=>count+1)
+        }else{
+            setCount("Already added max items : 5")
+        }
+    }
+    const decrement=()=>{
+        console.log('in increment')
+        if(count>0){
+        setCount(count=>count-1)
+        }
+    }
   return (
     <Card style={styles.card}>
       <Card.Img class ="cardImage" variant="top" src={imglink} style={styles.cardImage} />
@@ -30,8 +46,9 @@ function DispCard({title,desc,category,cost,imglink,count=0}) {
         <ListGroup.Item>Cost:{cost}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#"> Add to Cart</Card.Link>
+        <button type='button' onClick={increment}>+</button>
         <Card.Text>{count}</Card.Text>
+        <button type='button' onClick={decrement}>-</button>
       </Card.Body>
     </Card>
   );
