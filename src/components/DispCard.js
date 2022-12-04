@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const styles = {
     card: {
       backgroundColor: '#B7E0F2',
@@ -35,6 +35,8 @@ function DispCard({title,desc,category,cost,imglink}) {
             setCount(4);
         }
     }
+
+   
   return (
     <Card style={styles.card}>
       <Card.Img class ="cardImage" variant="top" src={imglink} style={styles.cardImage} />
