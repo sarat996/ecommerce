@@ -20,16 +20,19 @@ function DispCard({title,desc,category,cost,imglink}) {
     const [count,setCount] = useState(0);
     const increment=()=>{
         console.log('in increment')
-        if(count<=5){
+        if(count<5){
         setCount(count=>count+1)
-        }else{
+        }else if(count==5){
             setCount("Already added max items : 5")
         }
     }
     const decrement=()=>{
-        console.log('in increment')
+        console.log('in decrement')
         if(count>0){
         setCount(count=>count-1)
+        }
+        if(count==="Already added max items : 5"){
+            setCount(4);
         }
     }
   return (
